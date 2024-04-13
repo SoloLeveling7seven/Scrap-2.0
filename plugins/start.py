@@ -59,7 +59,7 @@ async def scrap_(client: Client, message: Message):
             global Loop
             Loop = True
             # while Loop:
-            #     await asyncio.sleep(10)            
+            # await asyncio.sleep(6)            
         except Exception as e:
             print(e)
             pass
