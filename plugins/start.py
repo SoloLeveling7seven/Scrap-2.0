@@ -58,8 +58,8 @@ async def scrap_(client: Client, message: Message):
             vi = await ubot.send_message(chat_id = bot_name,text = text)   
             global Loop
             Loop = True
-            # while Loop:
-            await asyncio.sleep(10)            
+            while Loop:
+                await asyncio.sleep(10)            
         except Exception as e:
             print(e)
             pass
@@ -71,12 +71,12 @@ async def down_(client: Client, message: Message):
     global pos_msg
     if "A" =="A":
         try:
-            file = await message.copy(-1002076307201)
-            # file = await client.download_media(message , file_name = f"{message.id},mp4")
-            # thumb = await client.download_media(message.video.thumbs[0].file_id , file_name = "out.jpg")
-            # post_message = await client.send_video(chat_id = int(CHANNEL_ID), video = file,thumb = thumb)            
-            # os.remove(file)
-            # os.remove(thumb)  
+            # file = await message.copy(-1002076307201)
+            file = await client.download_media(message , file_name = f"{message.id},mp4")
+            thumb = await client.download_media(message.video.thumbs[0].file_id , file_name = "out.jpg")
+            post_message = await client.send_video(chat_id = int(CHANNEL_ID), video = file,thumb = thumb)            
+            os.remove(file)
+            os.remove(thumb)  
             Loop = False
         except Exception as e:
             Loop = False
