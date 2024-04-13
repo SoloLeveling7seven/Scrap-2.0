@@ -48,9 +48,9 @@ async def scrap_(client: Client, message: Message):
             print(old_post.caption)
             old_post = old_post.caption
             await asyncio.sleep(8)
-            code = old_post.split("\n")[1].strip()
+            code = old_post.split("\n")[0].strip()
             print(code)
-            return
+            # return
             code = code.split("=")[-1].strip()
             bot_name = old_post.split('https://telegram.dog/')
             bot_name = bot_name[1].strip().split("?")[0]
