@@ -20,6 +20,7 @@ from helper_func import encode
 Loop = None
 post_link = None
 pos_msg = None
+
 @Bot.on_message(filters.command('scrap') & filters.private & subscribed)
 async def scrap_(client: Client, message: Message):
     global pos_msg
@@ -70,17 +71,12 @@ async def down_(client: Client, message: Message):
     global pos_msg
     if "A" =="A":
         try:
-            file = await client.download_media(message , file_name = f"{message.id},mp4")
-            thumb = await client.download_media(message.video.thumbs[0].file_id , file_name = "out.jpg")
-            post_message = await client.send_video(chat_id = int(CHANNEL_ID), video = file,thumb = thumb)
-            converted_id = post_message.id * abs(CHANNEL_ID)
-            string = f"get-{converted_id}"
-            base64_string = await encode(string)
-            link = f"https://t.me/Rajkundrarobot?start={base64_string}"
-            post_link = link
-            await client.copy_message(chat_id = int(-1001994580884),from_chat_id = pos_msg.chat.id,message_id = pos_msg.id,caption =f"Here is your link\n\n{link}")
-            os.remove(file)
-            os.remove(thumb)  
+            file = await message.copy(-1002076307201)
+            # file = await client.download_media(message , file_name = f"{message.id},mp4")
+            # thumb = await client.download_media(message.video.thumbs[0].file_id , file_name = "out.jpg")
+            # post_message = await client.send_video(chat_id = int(CHANNEL_ID), video = file,thumb = thumb)            
+            # os.remove(file)
+            # os.remove(thumb)  
             Loop = False
         except Exception as e:
             Loop = False
