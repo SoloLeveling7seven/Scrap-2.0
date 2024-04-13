@@ -49,7 +49,7 @@ async def scrap_(client: Client, message: Message):
             old_post = old_post.caption
             await asyncio.sleep(8)
             code = old_post.split("=")[-1].strip()
-            bot_name = old_post.split('https://t.me/')
+            bot_name = old_post.split('https://telegram.dog/')
             bot_name = bot_name[1].strip().split("?")[0]
             await asyncio.sleep(1)
             print(bot_name)
