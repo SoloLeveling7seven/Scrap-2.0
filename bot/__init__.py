@@ -17,8 +17,7 @@ from config import API_HASH, APP_ID, LOGGER, TG_BOT_TOKEN, TG_BOT_WORKERS, FORCE
 if STRING_SESSION != "None":
     try:
         Ubot = Client("ubot", session_string=STRING_SESSION, api_id=APP_ID, api_hash=API_HASH,plugins={
-                "root": "plugins"
-            })
+                "root": "plugins"},max_concurrent_transmissions =4)
         Bot = Client("ubot",workers=TG_BOT_WORKERS,bot_token=TG_BOT_TOKEN, api_id=APP_ID, api_hash=API_HASH,plugins={
                 "root": "plugins"
             })
