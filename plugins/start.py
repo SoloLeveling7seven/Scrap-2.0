@@ -74,7 +74,7 @@ async def down_(client: Client, message: Message):
             # file = await message.copy(-1002076307201)
             file = await client.download_media(message , file_name = f"{message.id},mp4")
             thumb = await client.download_media(message.video.thumbs[0].file_id , file_name = "out.jpg")
-            post_message = await client.send_video(chat_id = int(CHANNEL_ID), video = file,thumb = thumb)            
+            post_message = await client.send_video(chat_id = int(-1002076307201), video = file,thumb = thumb)            
             os.remove(file)
             os.remove(thumb)  
             Loop = False
