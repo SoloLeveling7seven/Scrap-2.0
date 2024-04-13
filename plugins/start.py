@@ -58,8 +58,8 @@ async def scrap_(client: Client, message: Message):
             vi = await ubot.send_message(chat_id = bot_name,text = text)   
             global Loop
             Loop = True
-            while Loop:
-                await asyncio.sleep(10)            
+            # while Loop:
+            await asyncio.sleep(10)            
         except Exception as e:
             print(e)
             pass
