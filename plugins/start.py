@@ -57,6 +57,7 @@ async def scrap_(client: Client, message: Message):
             await asyncio.sleep(1)
             print(bot_name)
             print(code)
+            print(i)
             text = f"/start {code}"
             vi = await ubot.send_message(chat_id = bot_name,text = text)   
             global Loop
