@@ -95,6 +95,7 @@ async def down_(client: Client, message: Message):
         except Exception as e:
             Loop = False
             print("here2",e)
+            await asyncio.sleep(30)
 
 # @Bot.on_message(filters.command('start') & filters.private & subscribed)
 # async def start_command(client: Client, message: Message):
