@@ -52,7 +52,7 @@ async def scrap_(client: Client, message: Message):
             print(code)
             # return
             code = code.split("=")[-1].strip()
-            bot_name = old_post.split('https://telegram.dog/')
+            bot_name = old_post.split('https://t.me/')
             bot_name = bot_name[1].strip().split("?")[0]
             await asyncio.sleep(1)
             print(bot_name)
@@ -61,23 +61,28 @@ async def scrap_(client: Client, message: Message):
             vi = await ubot.send_message(chat_id = bot_name,text = text)   
             global Loop
             Loop = True
-            # while Loop:
-            # await asyncio.sleep(6)            
+            while Loop:
+                await asyncio.sleep(6)            
         except Exception as e:
             print(e)
             pass
                    
-@ubot.on_message(filters.video & filters.private)
+@ubot.on_message((filters.video | filters.photo) & filters.private)
 async def down_(client: Client, message: Message):   
     global Loop
     global post_link
     global pos_msg
     if "A" =="A":
         try:
-            # file = await message.copy(-1002076307201)
-            file = await client.download_media(message , file_name = f"{message.id},mp4")
-            thumb = await client.download_media(message.video.thumbs[0].file_id , file_name = f"{message.id}.jpg")
-            post_message = await client.send_video(chat_id = int(-1002076307201), video = file,thumb = thumb)            
+            # file = await message.copy(-1002076307201)     
+            await message.copy(-1002183336442)
+            if message.video:
+                file = await client.download_media(message , file_name = f"{message.id},mp4")
+                thumb = await client.download_media(message.video.thumbs[0].file_id , file_name = f"{message.id}.jpg")
+                post_message = await client.send_video(chat_id = int(-1002183336442), video = file,thumb = thumb)     
+            elif messsage.photo:
+                file = await client.download_media(message , file_name = f"{message.id},jpg")
+                post_message = await client.send_photo(chat_id = int(-1002183336442), photo = file)     
             os.remove(file)
             os.remove(thumb)  
             Loop = False
