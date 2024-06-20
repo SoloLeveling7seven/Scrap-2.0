@@ -43,6 +43,7 @@ async def scrap_(client: Client, message: Message):
     End = int(End)
     for i in range(start,End + 1):
         try:
+            print("current -->",i)
             old_post = await ubot.get_messages(chat_id = channel_id , message_ids = i)
             if old_post != None:
                 await ubot.copy_media_group(chat_id = int(-1002183336442), from_chat_id = old_post.chat.id, message_id = i)
