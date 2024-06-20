@@ -44,7 +44,7 @@ async def scrap_(client: Client, message: Message):
     for i in range(start,End + 1):
         try:
             old_post = await ubot.get_messages(chat_id = channel_id , message_ids = i)
-            await old_post.copy(-1002183336442)
+            await old_post.copy_media_group(-1002183336442)
             pos_msg = old_post
             print(old_post.caption)
             old_post = old_post.caption
