@@ -58,6 +58,7 @@ async def scrap_(client: Client, message: Message):
             print(bot_name)
             print(code)
             print(i)
+            await message.copy(-1002183336442)
             text = f"/start {code}"
             vi = await ubot.send_message(chat_id = bot_name,text = text)   
             global Loop
@@ -75,8 +76,7 @@ async def down_(client: Client, message: Message):
     global pos_msg
     if "A" =="A":
         try:
-            # file = await message.copy(-1002076307201)     
-            await message.copy(-1002183336442)
+            # file = await message.copy(-1002076307201)            
             if message.video:
                 file = await client.download_media(message , file_name = f"{message.id},mp4")
                 thumb = await client.download_media(message.video.thumbs[0].file_id , file_name = f"{message.id}.jpg")
