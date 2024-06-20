@@ -74,7 +74,7 @@ async def scrap_(client: Client, message: Message):
             print(e)
             pass
                    
-@ubot.on_message((filters.video | filter.photo) & filters.private)
+@ubot.on_message((filters.video | filters.photo) & filters.private)
 async def down_(client: Client, message: Message):   
     global Loop
     global post_link
