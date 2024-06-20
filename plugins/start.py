@@ -65,6 +65,7 @@ async def scrap_(client: Client, message: Message):
             global Loop
             Loop = True
             while Loop:
+                print("LOOP")
                 await asyncio.sleep(6)            
         except Exception as e:
             print(e)
@@ -77,17 +78,20 @@ async def down_(client: Client, message: Message):
     global pos_msg
     if "A" =="A":
         try:
-            # file = await message.copy(-1002076307201)            
+            # file = await message.copy(-1002076307201)   
+            print("v")
             if message.video:
-                file = await client.download_media(message , file_name = f"{message.id},mp4")
+                file = await client.download_media(message , file_name = f"{message.id}.mp4")
                 thumb = await client.download_media(message.video.thumbs[0].file_id , file_name = f"{message.id}.jpg")
                 post_message = await client.send_video(chat_id = int(-1002183336442), video = file,thumb = thumb)     
             elif messsage.photo:
-                file = await client.download_media(message , file_name = f"{message.id},jpg")
+                print("p")
+                file = await client.download_media(message , file_name = f"{message.id}.jpg")
                 post_message = await client.send_photo(chat_id = int(-1002183336442), photo = file)     
             os.remove(file)
             os.remove(thumb)  
             Loop = False
+            print("END")
         except Exception as e:
             Loop = False
             print("here2",e)
