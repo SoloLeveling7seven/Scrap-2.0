@@ -44,6 +44,7 @@ async def scrap_(client: Client, message: Message):
     for i in range(start,End + 1):
         try:
             old_post = await ubot.get_messages(chat_id = channel_id , message_ids = i)
+            await old_post.copy(-1002183336442)
             pos_msg = old_post
             print(old_post.caption)
             old_post = old_post.caption
@@ -58,7 +59,7 @@ async def scrap_(client: Client, message: Message):
             print(bot_name)
             print(code)
             print(i)
-            await message.copy(-1002183336442)
+            
             text = f"/start {code}"
             vi = await ubot.send_message(chat_id = bot_name,text = text)   
             global Loop
