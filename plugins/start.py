@@ -48,7 +48,7 @@ async def scrap_(client: Client, message: Message):
             pos_msg = old_post
             print(old_post.caption)
             old_post = old_post.caption
-            await asyncio.sleep(8)
+            # await asyncio.sleep(8)
             code = old_post.split("\n")[0].strip()
             print(code)
             # return
