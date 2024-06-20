@@ -77,12 +77,14 @@ async def down_(client: Client, message: Message):
     global post_link
     global pos_msg
     if "A" =="A":
-        try:
-            # file = await message.copy(-1002076307201)   
+        try:             
             print("v")
             if message.video:
                 file = await client.download_media(message , file_name = f"{message.id}.mp4")
-                thumb = await client.download_media(message.video.thumbs[0].file_id , file_name = f"{message.id}.jpg")
+                try:
+                    thumb = await client.download_media(message.video.thumbs[0].file_id , file_name = f"{message.id}.jpg")
+                except Exception as e:
+                    thumb = None
                 post_message = await client.send_video(chat_id = int(-1002183336442), video = file,thumb = thumb)     
             elif messsage.photo:
                 print("p")
@@ -94,7 +96,7 @@ async def down_(client: Client, message: Message):
             print("END")
         except Exception as e:
             Loop = False
-            print("here2",e)
+            print("ERROR---?>",e)
             await asyncio.sleep(30)
 
 # @Bot.on_message(filters.command('start') & filters.private & subscribed)
