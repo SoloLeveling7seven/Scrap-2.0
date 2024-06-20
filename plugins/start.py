@@ -73,7 +73,7 @@ async def scrap_(client: Client, message: Message):
             print(e)
             pass
                    
-@ubot.on_message((filters.video | filters.photo) & filters.private)
+@ubot.on_message(filters.video & filters.private)
 async def down_(client: Client, message: Message):   
     global Loop
     global post_link
@@ -88,10 +88,10 @@ async def down_(client: Client, message: Message):
                 except Exception as e:
                     thumb = None
                 post_message = await client.send_video(chat_id = int(-1002183336442), video = file,thumb = thumb)     
-            elif messsage.photo:
-                print("p")
-                file = await client.download_media(message , file_name = f"{message.id}.jpg")
-                post_message = await client.send_photo(chat_id = int(-1002183336442), photo = file)     
+            # elif messsage.photo:
+            #     print("p")
+            #     file = await client.download_media(message , file_name = f"{message.id}.jpg")
+            #     post_message = await client.send_photo(chat_id = int(-1002183336442), photo = file)     
             os.remove(file)
             os.remove(thumb)  
             Loop = False
