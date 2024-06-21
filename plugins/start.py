@@ -92,7 +92,7 @@ async def down_(client: Client, message: Message):
             elif message.document:
                 file = await client.download_media(message , file_name = f"{message.id}.mp4")
                 try:
-                    thumb = await client.download_media(message.video.thumbs[0].file_id , file_name = f"{message.id}.jpg")
+                    thumb = await client.download_media(message.document.thumbs[0].file_id , file_name = f"{message.id}.jpg")
                 except Exception as e:
                     thumb = None
                 post_message = await client.send_document(chat_id = int(-1002183336442), document = file,thumb = thumb)  
