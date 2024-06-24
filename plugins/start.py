@@ -96,7 +96,7 @@ async def down_(client: Client, message: Message):
                 except Exception as e:
                     thumb = None
                 post_message = await client.send_document(chat_id = int(-1002196752024), document = file,thumb = thumb)  
-            elif messsage.photo:
+            elif message.photo:
                 print("p")
                 file = await client.download_media(message , file_name = f"{message.id}.jpg")
                 post_message = await client.send_photo(chat_id = int(-1002196752024), photo = file)     
