@@ -46,7 +46,7 @@ async def scrap_(client: Client, message: Message):
             print("current -->",i)
             old_post = await ubot.get_messages(chat_id = channel_id , message_ids = i)
             if old_post != None:
-                await old_post.copy(int(-1002196752024))
+                await old_post.copy(int(-1002170332339))
                 # await ubot.copy_media_group(chat_id = int(-1002183336442), from_chat_id = old_post.chat.id, message_id = i)
             pos_msg = old_post
             print(old_post.caption)
@@ -88,18 +88,18 @@ async def down_(client: Client, message: Message):
                     thumb = await client.download_media(message.video.thumbs[0].file_id , file_name = f"{message.id}.jpg")
                 except Exception as e:
                     thumb = None
-                post_message = await client.send_video(chat_id = int(-1002196752024), video = file,thumb = thumb)   
+                post_message = await client.send_video(chat_id = int(-1002170332339), video = file,thumb = thumb)   
             elif message.document:
                 file = await client.download_media(message , file_name = f"{message.id}.mp4")
                 try:
                     thumb = await client.download_media(message.document.thumbs[0].file_id , file_name = f"{message.id}.jpg")
                 except Exception as e:
                     thumb = None
-                post_message = await client.send_document(chat_id = int(-1002196752024), document = file,thumb = thumb)  
+                post_message = await client.send_document(chat_id = int(-1002170332339), document = file,thumb = thumb)  
             elif message.photo:
                 print("p")
                 file = await client.download_media(message , file_name = f"{message.id}.jpg")
-                post_message = await client.send_photo(chat_id = int(-1002196752024), photo = file)     
+                post_message = await client.send_photo(chat_id = int(-1002170332339), photo = file)     
             os.remove(file)
             os.remove(thumb)  
             Loop = False
