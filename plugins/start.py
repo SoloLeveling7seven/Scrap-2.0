@@ -3,7 +3,7 @@
 
 
 
-import os
+import os,sys
 import asyncio
 import pyromod.listen
 from pyrogram import Client, filters, __version__
