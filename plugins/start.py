@@ -115,7 +115,7 @@ async def down_(client: Client, message: Message):
 async def restart_bot(client: Client, message: Message):
     msg = await message.reply("Restarting", reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton('Dev', url='https://t.me/ShadowYt77')]]))
 
-    os.execl(sys.executable, sys.executable, "-m", "main.py")
+    os.execl(sys.executable, sys.executable, "main.py")
 
 # @Bot.on_message(filters.command('start') & filters.private & subscribed)
 # async def start_command(client: Client, message: Message):
