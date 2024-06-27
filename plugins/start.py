@@ -109,6 +109,14 @@ async def down_(client: Client, message: Message):
             print("ERROR---?>",e)
             await asyncio.sleep(30)
 
+
+
+@Bot.on_message(filters.command('restart') & filters.private)
+async def restart_bot(client: Client, message: Message):
+    msg = await message.reply("Restarting", reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton('Dev', url='https://t.me/ShadowYt77')]]))
+
+    os.execl(sys.executable, sys.executable, "-m", "main.py")
+
 # @Bot.on_message(filters.command('start') & filters.private & subscribed)
 # async def start_command(client: Client, message: Message):
 #     id = message.from_user.id
